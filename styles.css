@@ -1,0 +1,73 @@
+:root {
+  --ink: #182230;
+  --muted: #526072;
+  --paper: #f7f9fc;
+  --panel: #ffffff;
+  --navy: #153a63;
+  --blue: #1267b2;
+  --blue-soft: #e9f3ff;
+  --line: #cfdae7;
+  --focus: #e4780e;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Inter, Aptos, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+button { font: inherit; cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.skip-link { position: absolute; left: -999px; top: 0; background: #fff; padding: .6rem 1rem; z-index: 5; }
+.skip-link:focus { left: 1rem; }
+.site-header, main, footer { max-width: 1080px; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+.site-header { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding-top: 1.8rem; padding-bottom: 1.4rem; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { color: var(--navy); font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.15; margin-bottom: 0; }
+h2 { color: var(--navy); line-height: 1.25; }
+h3 { font-size: 1.25rem; margin-bottom: .5rem; }
+.eyebrow, .kicker, .card-label { color: var(--blue); font-size: .82rem; font-weight: 750; letter-spacing: .08em; margin-bottom: .25rem; text-transform: uppercase; }
+.intro, .status-panel, .study-area { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.25rem, 4vw, 2.2rem); margin-bottom: 1.25rem; box-shadow: 0 5px 20px rgba(21, 58, 99, .05); }
+.intro h2 { font-size: clamp(1.45rem, 3vw, 2rem); max-width: 42rem; }
+.controls, .feedback-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.25rem; }
+button { background: var(--blue); color: white; border: 2px solid var(--blue); border-radius: 8px; padding: .62rem 1rem; font-weight: 700; }
+button:hover { background: #0a518f; border-color: #0a518f; }
+button:disabled { cursor: not-allowed; opacity: .58; }
+button:disabled:hover { background: var(--blue); border-color: var(--blue); }
+button.secondary, .quiet-button { color: var(--navy); background: white; border-color: #9db3c9; }
+button.secondary:hover, .quiet-button:hover { background: var(--blue-soft); border-color: var(--blue); }
+.quiet-button { white-space: nowrap; font-size: .9rem; }
+.status-panel { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; border-left: 6px solid var(--blue); }
+.status-panel h2 { margin-bottom: .25rem; font-size: 1.15rem; }
+.status-panel p { margin-bottom: 0; color: var(--muted); }
+.link-button { background: transparent; color: var(--blue); padding: .25rem; border: 0; text-decoration: underline; }
+.explanation { grid-column: 1 / -1; background: var(--blue-soft); border-radius: 8px; padding: 1rem; color: #193b5a; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.section-heading h2 { margin-bottom: 0; }
+.badge { border-radius: 100px; background: #e8edf4; color: var(--navy); padding: .35rem .7rem; font-weight: 700; font-size: .9rem; white-space: nowrap; }
+.cards { display: grid; gap: 1rem; }
+.cards.detailed { grid-template-columns: repeat(3, 1fr); }
+.cards.concise { grid-template-columns: 1fr; }
+.study-card { border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; background: #fff; }
+.study-card p:last-child { margin-bottom: 0; }
+.concise .study-card { display: grid; grid-template-columns: 12rem 1fr; gap: 1rem; align-items: baseline; padding: 1rem 1.25rem; }
+.concise .study-card > * { grid-column: 2; }
+.concise .study-card .card-label { grid-column: 1; grid-row: 1 / span 2; align-self: center; }
+.concise .study-card h3 { margin-bottom: 0; }
+.concise .detail { display: none; }
+.feedback { margin-top: 1.5rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.feedback h2 { font-size: 1.15rem; margin-bottom: .25rem; }
+.feedback p { color: var(--muted); }
+footer { color: var(--muted); font-size: .9rem; padding-top: 1rem; padding-bottom: 2rem; }
+body.high-contrast { --ink: #000; --muted: #17212d; --paper: #fff; --panel: #fff; --navy: #000; --blue: #004a9b; --blue-soft: #e0efff; --line: #334a61; }
+@media (max-width: 760px) {
+  .site-header, .status-panel, .section-heading { align-items: flex-start; flex-direction: column; }
+  .status-panel { display: flex; }
+  .cards.detailed { grid-template-columns: 1fr; }
+  .concise .study-card { display: block; }
+  .concise .study-card .card-label { margin-bottom: .35rem; }
+}
