@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A transparent, local-first reinforcement-learning adaptive interface demo." />
+    <title>Adaptive Study Space</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to study workspace</a>
+    <header class="site-header">
+      <div>
+        <p class="eyebrow">Local-first AI interaction demo</p>
+        <h1>Adaptive Study Space</h1>
+      </div>
+      <button id="resetButton" class="quiet-button" type="button">Reset local learning</button>
+    </header>
+
+    <main id="workspace">
+      <section class="intro" aria-labelledby="welcomeTitle">
+        <p class="kicker">A transparent adaptive UI</p>
+        <h2 id="welcomeTitle">Your study view adjusts, but you remain in charge.</h2>
+        <p>The interface tests two layouts, learns from your feedback, and recommends the one with the strongest reward estimate. No account, cloud service, or personal data is used.</p>
+        <div class="controls" aria-label="Study controls">
+          <button id="summaryButton" type="button">Show a concise view</button>
+          <button id="detailButton" class="secondary" type="button">Show more detail</button>
+          <button id="contrastButton" class="secondary" type="button" aria-pressed="false">High contrast</button>
+        </div>
+      </section>
+
+      <section class="status-panel" aria-live="polite" aria-labelledby="modelTitle">
+        <div>
+          <p class="eyebrow">Model status</p>
+          <h2 id="modelTitle">Learning from explicit feedback</h2>
+          <p id="recommendation">Choose a layout to begin.</p>
+        </div>
+        <button id="whyButton" class="link-button" type="button" aria-expanded="false" aria-controls="explanation">Why this recommendation?</button>
+        <div id="explanation" class="explanation" hidden></div>
+      </section>
+
+      <section class="study-area" aria-labelledby="studyTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Study workspace</p>
+            <h2 id="studyTitle">Adaptive user interfaces</h2>
+          </div>
+          <span id="layoutBadge" class="badge">Awaiting a choice</span>
+        </div>
+
+        <div id="cards" class="cards detailed">
+          <article class="study-card">
+            <p class="card-label">Core concept</p>
+            <h3>Adaptive UI</h3>
+            <p>An adaptive user interface changes its presentation, navigation, content, or interaction behavior at runtime in response to information about the user, task, or context.</p>
+            <p class="detail">In this demo, concise and detailed are two alternatives. The interface uses feedback to estimate which alternative is more useful for the current learner.</p>
+          </article>
+          <article class="study-card">
+            <p class="card-label">Intelligent UI</p>
+            <h3>Intelligence supports interaction</h3>
+            <p>An intelligent user interface applies computational intelligence to make interaction more effective, natural, or supportive.</p>
+            <p class="detail">An adaptive UI is often an intelligent UI when it uses a model or learning method. However, not every intelligent UI changes its presentation, and a rule-based adaptive UI need not use machine learning.</p>
+          </article>
+          <article class="study-card">
+            <p class="card-label">Design safeguard</p>
+            <h3>Adapt with consent and recourse</h3>
+            <p>Good adaptation is visible, reversible, and easy to override. Users should be able to understand what changed and correct an inaccurate inference.</p>
+            <p class="detail">The buttons above provide a direct override. The explanation panel shows the stored reward counts, and reset removes all locally stored learning.</p>
+          </article>
+        </div>
+
+        <section id="feedbackPanel" class="feedback" aria-labelledby="feedbackTitle" hidden>
+          <h2 id="feedbackTitle">Was this layout useful?</h2>
+          <p id="feedbackPrompt">Your feedback updates the local reward estimate for this layout.</p>
+          <div class="feedback-actions">
+            <button id="helpfulButton" type="button">Yes, helpful</button>
+            <button id="notHelpfulButton" class="secondary" type="button">Not helpful</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <p>Prototype for an AI-based adaptive human-computer interaction assignment. All adaptation happens in this browser using local storage.</p>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
